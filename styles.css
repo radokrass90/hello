@@ -486,3 +486,91 @@ dd {
     text-align: left;
   }
 }
+
+.paid-apps {
+  margin-top: 26px;
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at top right, rgba(251, 191, 36, 0.15), transparent 26rem),
+    rgba(13, 25, 44, 0.72);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(22px);
+}
+
+.paid-app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.paid-app-card {
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 26px;
+  background: rgba(3, 9, 20, 0.46);
+}
+
+.paid-app-card.featured {
+  background:
+    linear-gradient(135deg, rgba(99, 230, 190, 0.22), rgba(59, 130, 246, 0.18)),
+    rgba(3, 9, 20, 0.62);
+}
+
+.paid-app-card h3,
+.paid-app-card p {
+  margin: 0;
+}
+
+.paid-app-card h3 {
+  font-size: 1.25rem;
+}
+
+.paid-app-card p:not(.app-type) {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.app-type {
+  color: #fbbf24;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.paid-app-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 12px 16px;
+  border-radius: 999px;
+  color: #062118;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.paid-app-card a:hover,
+.paid-app-card a:focus-visible {
+  box-shadow: 0 0 0 7px var(--ring);
+}
+
+@media (max-width: 1180px) {
+  .paid-app-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .paid-app-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -8,6 +8,7 @@ PlanetCast is a small static weather homepage that lets users search for current
 - Current temperature, condition, wind, wind direction, humidity, feels-like temperature, pressure, cloud cover, precipitation, and coordinates.
 - Five-day outlook with high/low temperature, rain probability, and UV index.
 - Live camera launch cards for New York City, Los Angeles, and Chicago, the three largest U.S. cities by population.
+- Sponsor-style cards for popular paid weather apps, with purchase reasons and official links.
 
 ## Run locally
 
