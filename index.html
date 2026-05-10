@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PlanetCast Weather</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__content">
+          <p class="eyebrow">Realtime global weather</p>
+          <h1 id="page-title">Weather conditions anywhere on the planet.</h1>
+          <p class="hero__lead">
+            Search for any city, landmark, or region to view live temperature, wind,
+            humidity, and atmospheric conditions powered by open weather data.
+          </p>
+
+          <form id="weather-form" class="search" aria-label="Search global weather">
+            <label class="sr-only" for="location-input">Location</label>
+            <input
+              id="location-input"
+              name="location"
+              type="search"
+              placeholder="Try Tokyo, Nairobi, Reykjavik, or Buenos Aires"
+              autocomplete="off"
+              required
+            />
+            <button type="submit">Get weather</button>
+          </form>
+
+          <div class="quick-links" aria-label="Popular weather locations">
+            <button type="button" data-location="New York">New York</button>
+            <button type="button" data-location="London">London</button>
+            <button type="button" data-location="Sydney">Sydney</button>
+            <button type="button" data-location="Cape Town">Cape Town</button>
+          </div>
+        </div>
+
+        <aside class="weather-card" aria-live="polite" aria-label="Current weather">
+          <div id="status" class="status">Enter a location to see realtime conditions.</div>
+          <div id="weather-result" class="weather-result hidden">
+            <div class="weather-result__header">
+              <div>
+                <p id="place" class="place"></p>
+                <p id="updated" class="updated"></p>
+              </div>
+              <div id="weather-icon" class="weather-icon" aria-hidden="true">☀️</div>
+            </div>
+            <div class="temperature"><span id="temperature">--</span><span>°C</span></div>
+            <p id="condition" class="condition"></p>
+            <dl class="metrics">
+              <div>
+                <dt>Wind</dt>
+                <dd id="wind">--</dd>
+              </div>
+              <div>
+                <dt>Wind direction</dt>
+                <dd id="wind-direction">--</dd>
+              </div>
+              <div>
+                <dt>Humidity</dt>
+                <dd id="humidity">--</dd>
+              </div>
+              <div>
+                <dt>Feels like</dt>
+                <dd id="feels-like">--</dd>
+              </div>
+              <div>
+                <dt>Pressure</dt>
+                <dd id="pressure">--</dd>
+              </div>
+              <div>
+                <dt>Cloud cover</dt>
+                <dd id="cloud-cover">--</dd>
+              </div>
+              <div>
+                <dt>Precipitation</dt>
+                <dd id="precipitation">--</dd>
+              </div>
+              <div>
+                <dt>Coordinates</dt>
+                <dd id="coordinates">--</dd>
+              </div>
+            </dl>
+
+            <section class="forecast" aria-labelledby="forecast-title">
+              <h2 id="forecast-title">5-day outlook</h2>
+              <div id="forecast-list" class="forecast-list"></div>
+            </section>
+          </div>
+        </aside>
+      </section>
+
+      <section class="features" aria-label="Application features">
+        <article>
+          <span>🌍</span>
+          <h2>Planet-wide search</h2>
+          <p>Look up realtime conditions for locations across every continent.</p>
+        </article>
+        <article>
+          <span>⚡</span>
+          <h2>Live current data</h2>
+          <p>Current weather refreshes directly from Open-Meteo when you search.</p>
+        </article>
+        <article>
+          <span>📍</span>
+          <h2>Precise local context</h2>
+          <p>See country, coordinates, local observation time, and expanded weather metrics.</p>
+        </article>
+      </section>
+
+      <section class="camera-section" aria-labelledby="camera-title">
+        <div class="section-heading">
+          <p class="eyebrow">Live city cameras</p>
+          <h2 id="camera-title">Watch the 3 largest cities in America.</h2>
+          <p>
+            Load live camera feeds for New York City, Los Angeles, and Chicago—the three
+            largest U.S. cities by population. If a provider blocks embedded playback,
+            use the open-camera link on that card.
+          </p>
+        </div>
+
+        <div class="camera-grid">
+          <article class="camera-card">
+            <div class="camera-frame" data-camera-frame="new-york">
+              <span>🗽</span>
+              <p>Times Square live view is ready to load.</p>
+            </div>
+            <div class="camera-card__body">
+              <p class="camera-rank">#1 largest U.S. city</p>
+              <h3>New York City</h3>
+              <p>Times Square from Broadway, useful for checking crowds, lighting, and street conditions.</p>
+              <button type="button" data-camera="new-york">Load live camera</button>
+              <a href="https://www.skylinewebcams.com/webcam/united-states/new-york/new-york/new-york-city.html" target="_blank" rel="noreferrer">Open camera source</a>
+            </div>
+          </article>
+
+          <article class="camera-card">
+            <div class="camera-frame" data-camera-frame="los-angeles">
+              <span>🎬</span>
+              <p>Hollywood Sign live view is ready to load.</p>
+            </div>
+            <div class="camera-card__body">
+              <p class="camera-rank">#2 largest U.S. city</p>
+              <h3>Los Angeles</h3>
+              <p>Hollywood Sign webcam for visibility, haze, and hillside weather context.</p>
+              <button type="button" data-camera="los-angeles">Load live camera</button>
+              <a href="https://www.hollywoodsign.org/webcam" target="_blank" rel="noreferrer">Open camera source</a>
+            </div>
+          </article>
+
+          <article class="camera-card">
+            <div class="camera-frame" data-camera-frame="chicago">
+              <span>🌆</span>
+              <p>Willis Tower live view is ready to load.</p>
+            </div>
+            <div class="camera-card__body">
+              <p class="camera-rank">#3 largest U.S. city</p>
+              <h3>Chicago</h3>
+              <p>Skydeck Chicago camera for skyline, Lake Michigan, cloud, and visibility checks.</p>
+              <button type="button" data-camera="chicago">Load live camera</button>
+              <a href="https://theskydeck.com/live-web-cam/" target="_blank" rel="noreferrer">Open camera source</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
