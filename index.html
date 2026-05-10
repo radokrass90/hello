@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PlanetCast Weather</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__content">
+          <p class="eyebrow">Realtime global weather</p>
+          <h1 id="page-title">Weather conditions anywhere on the planet.</h1>
+          <p class="hero__lead">
+            Search for any city, landmark, or region to view live temperature, wind,
+            humidity, and atmospheric conditions powered by open weather data.
+          </p>
+
+          <form id="weather-form" class="search" aria-label="Search global weather">
+            <label class="sr-only" for="location-input">Location</label>
+            <input
+              id="location-input"
+              name="location"
+              type="search"
+              placeholder="Try Tokyo, Nairobi, Reykjavik, or Buenos Aires"
+              autocomplete="off"
+              required
+            />
+            <button type="submit">Get weather</button>
+          </form>
+
+          <div class="quick-links" aria-label="Popular weather locations">
+            <button type="button" data-location="New York">New York</button>
+            <button type="button" data-location="London">London</button>
+            <button type="button" data-location="Sydney">Sydney</button>
+            <button type="button" data-location="Cape Town">Cape Town</button>
+          </div>
+        </div>
+
+        <aside class="weather-card" aria-live="polite" aria-label="Current weather">
+          <div id="status" class="status">Enter a location to see realtime conditions.</div>
+          <div id="weather-result" class="weather-result hidden">
+            <div class="weather-result__header">
+              <div>
+                <p id="place" class="place"></p>
+                <p id="updated" class="updated"></p>
+              </div>
+              <div id="weather-icon" class="weather-icon" aria-hidden="true">☀️</div>
+            </div>
+            <div class="temperature"><span id="temperature">--</span><span>°C</span></div>
+            <p id="condition" class="condition"></p>
+            <dl class="metrics">
+              <div>
+                <dt>Wind</dt>
+                <dd id="wind">--</dd>
+              </div>
+              <div>
+                <dt>Humidity</dt>
+                <dd id="humidity">--</dd>
+              </div>
+              <div>
+                <dt>Feels like</dt>
+                <dd id="feels-like">--</dd>
+              </div>
+              <div>
+                <dt>Coordinates</dt>
+                <dd id="coordinates">--</dd>
+              </div>
+            </dl>
+          </div>
+        </aside>
+      </section>
+
+      <section class="features" aria-label="Application features">
+        <article>
+          <span>🌍</span>
+          <h2>Planet-wide search</h2>
+          <p>Look up realtime conditions for locations across every continent.</p>
+        </article>
+        <article>
+          <span>⚡</span>
+          <h2>Live current data</h2>
+          <p>Current weather refreshes directly from Open-Meteo when you search.</p>
+        </article>
+        <article>
+          <span>📍</span>
+          <h2>Precise local context</h2>
+          <p>See country, coordinates, local observation time, and core weather metrics.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
